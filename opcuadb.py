@@ -5,9 +5,7 @@ import logging
 from opcua import Client
 from opcua.ua.uatypes import _split_list
 
-logging.basicConfig(filename="opcuadb.log", 
-					format='%(asctime)s %(message)s', 
-					filemode='w') 
+logging.basicConfig(filename="opcuadb.log", format='%(asctime)s %(message)s', filemode='w') 
 logger=logging.getLogger()
 logger.setLevel(logging.INFO)
 
@@ -28,7 +26,7 @@ opcrobot = 'robotname'
 opcurl = 'opc.tcp://192.168.40.101:4840/OPC-SERVER/\n'
 client = Client(opcurl)
 client.connect()
-print('Lettura dati', opcrobot,'\n','Indirizzo: ',opcurl,'\n')
+print('Read data', opcrobot,'\n','Opc Url: ',opcurl,'\n')
 
 while True:
     SysAnno = client.get_node("ns=2;s=Local HMI.Tags.Sys-Anno")
